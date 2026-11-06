@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ShopEase 🛍️</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Electronics</a>
+            <a href="#">Fashion</a>
+            <a href="#">Shoes</a>
+            <a href="#">Accessories</a>
+        </nav>
+
+        <div class="cart">
+            🛒 Cart (<span id="cart-count">0</span>)
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to ShopEase!</h2>
+        <p>Everything you need, all in one place.</p>
+        <button onclick="showMessage()">Explore Now</button>
+    </section>
+
+    <section class="products">
+        <h2>Our Categories</h2>
+
+        <div class="category-container">
+            <div class="category">📱 Electronics</div>
+            <div class="category">👗 Fashion</div>
+            <div class="category">👟 Shoes</div>
+            <div class="category">⌚ Accessories</div>
+        </div>
+    </section>
+    <!-- Products Section -->
+<section class="product-section" id="products">
+    <!-- Product Search -->
+<div class="search-container">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Search for products..."
+        onkeyup="searchProducts()"
+    >
+</div>
+
+    <h2>Featured Products</h2>
+
+    <div class="product-container">
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400"
+            alt="Headphones">
+            <h3>Wireless Headphones</h3>
+            <p>₹1,499</p>
+            <button onclick="addToCart('Wireless Headphones', 1499)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400"
+            alt="Watch">
+            <h3>Smart Watch</h3>
+            <p>₹2,499</p>
+            <button onclick="addToCart('Smart Watch', 2499)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400"
+            alt="Shoes">
+            <h3>Running Shoes</h3>
+            <p>₹1,999</p>
+            <button onclick="addToCart('Running Shoes', 1999)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400"
+            alt="Handbag">
+            <h3>Stylish Handbag</h3>
+            <p>₹1,299</p>
+            <button onclick="addToCart('Stylish Handbag', 1299)">
+                Add to Cart
+            </button>
+        </div>
+
+    </div>
+</section>
+<!-- Shopping Cart Section -->
+<section class="cart-section" id="shopping-cart">
+
+    <h2>🛒 Your Shopping Cart</h2>
+
+    <div id="cart-items">
+        <p>Your cart is empty!</p>
+    </div>
+
+    <h3>Total: ₹<span id="cart-total">0</span></h3>
+
+    <button onclick="checkout()" class="checkout-btn">
+        Proceed to Checkout
+    </button>
+
+</section>
+<!-- Checkout Section -->
+<section id="checkout-section" class="checkout-section"
+         style="display:none;">
+
+    <h2>🛍️ Checkout</h2>
+
+    <form id="checkout-form" onsubmit="placeOrder(event)">
+
+        <label>Customer Name:</label>
+        <input type="text" id="customer-name"
+               placeholder="Enter your name" required>
+
+        <label>Email Address:</label>
+        <input type="email" id="customer-email"
+               placeholder="Enter your email" required>
+
+        <label>Mobile Number:</label>
+        <input type="tel" id="customer-phone"
+               placeholder="Enter 10-digit number"
+               pattern="[0-9]{10}" required>
+
+        <label>Delivery Address:</label>
+        <textarea id="customer-address"
+                  placeholder="Enter your full address"
+                  required></textarea>
+
+        <button type="submit" class="checkout-btn">
+            Place Order
+        </button>
+
+    </form>
+
+    <p id="order-message"></p>
+
+</section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
